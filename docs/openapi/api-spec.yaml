@@ -1,0 +1,242 @@
+openapi: 3.0.3
+info:
+  title: Simple Sales & Inventory API
+  version: 1.0.0
+  description: Foundation API specification based on Architecture.md endpoint list.
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+tags:
+  - name: IdentityAccess
+  - name: Catalog
+  - name: Sales
+  - name: Inventory
+  - name: Reporting
+paths:
+  /api/v1/auth/login:
+    post:
+      tags: [IdentityAccess]
+      summary: Login
+      responses:
+        "200":
+          description: OK
+  /api/v1/me:
+    get:
+      tags: [IdentityAccess]
+      summary: Get current user profile
+      responses:
+        "200":
+          description: OK
+
+  /api/v1/products:
+    post:
+      tags: [Catalog]
+      summary: Create product
+      responses:
+        "201":
+          description: Created
+    get:
+      tags: [Catalog]
+      summary: List products
+      responses:
+        "200":
+          description: OK
+  /api/v1/products/{id}:
+    get:
+      tags: [Catalog]
+      summary: Get product by ID
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+    patch:
+      tags: [Catalog]
+      summary: Update product
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+  /api/v1/products/{id}/status:
+    patch:
+      tags: [Catalog]
+      summary: Update product status
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+
+  /api/v1/sales-orders:
+    post:
+      tags: [Sales]
+      summary: Create sales order
+      responses:
+        "201":
+          description: Created
+  /api/v1/sales-orders/{id}:
+    get:
+      tags: [Sales]
+      summary: Get sales order by ID
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+  /api/v1/sales-orders/{id}/items:
+    patch:
+      tags: [Sales]
+      summary: Update sales order items
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+  /api/v1/sales-orders/{id}/discount:
+    patch:
+      tags: [Sales]
+      summary: Update sales order discount
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+  /api/v1/sales-orders/{id}/complete:
+    post:
+      tags: [Sales]
+      summary: Complete sales order
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+        "409":
+          description: Conflict
+  /api/v1/sales-orders/{id}/cancel:
+    post:
+      tags: [Sales]
+      summary: Cancel sales order
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+  /api/v1/sales-orders/{id}/invoice-detail:
+    get:
+      tags: [Sales]
+      summary: Get invoice detail payload
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+
+  /api/v1/stock-ins:
+    post:
+      tags: [Inventory]
+      summary: Create stock-in document
+      responses:
+        "201":
+          description: Created
+  /api/v1/stock-ins/{id}:
+    get:
+      tags: [Inventory]
+      summary: Get stock-in by ID
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+  /api/v1/stock-ins/{id}/confirm:
+    post:
+      tags: [Inventory]
+      summary: Confirm stock-in
+      parameters:
+        - $ref: '#/components/parameters/IdPathParam'
+      responses:
+        "200":
+          description: OK
+  /api/v1/stock-adjustments:
+    post:
+      tags: [Inventory]
+      summary: Create stock adjustment
+      responses:
+        "201":
+          description: Created
+  /api/v1/inventory-transactions:
+    get:
+      tags: [Inventory]
+      summary: List inventory transactions
+      responses:
+        "200":
+          description: OK
+
+  /api/v1/reports/revenue-daily:
+    get:
+      tags: [Reporting]
+      summary: Daily revenue report
+      parameters:
+        - $ref: '#/components/parameters/FromDateQueryParam'
+        - $ref: '#/components/parameters/ToDateQueryParam'
+      responses:
+        "200":
+          description: OK
+  /api/v1/reports/gross-profit:
+    get:
+      tags: [Reporting]
+      summary: Gross profit report
+      parameters:
+        - $ref: '#/components/parameters/FromDateQueryParam'
+        - $ref: '#/components/parameters/ToDateQueryParam'
+      responses:
+        "200":
+          description: OK
+  /api/v1/reports/top-selling:
+    get:
+      tags: [Reporting]
+      summary: Top selling products report
+      parameters:
+        - $ref: '#/components/parameters/FromDateQueryParam'
+        - $ref: '#/components/parameters/ToDateQueryParam'
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 1
+            default: 10
+      responses:
+        "200":
+          description: OK
+  /api/v1/reports/low-stock:
+    get:
+      tags: [Reporting]
+      summary: Low stock report
+      responses:
+        "200":
+          description: OK
+
+components:
+  parameters:
+    IdPathParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    FromDateQueryParam:
+      name: from
+      in: query
+      required: true
+      schema:
+        type: string
+        format: date
+    ToDateQueryParam:
+      name: to
+      in: query
+      required: true
+      schema:
+        type: string
+        format: date
