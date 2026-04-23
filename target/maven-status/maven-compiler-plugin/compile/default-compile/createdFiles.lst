@@ -21,5 +21,6 @@ com/something/application/usecase/GetProductUseCase.class
 com/something/application/usecase/CreateProductUseCase.class
 com/something/infrastructure/security/DatabaseUserDetailsService.class
 com/something/application/service/PlaceholderApplicationService.class
+com/something/api/exception/GlobalExceptionHandler.class
 com/something/domain/rule/BusinessRule.class
 com/something/api/dto/CreateProductResponse.class

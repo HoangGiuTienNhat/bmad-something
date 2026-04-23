@@ -4,6 +4,7 @@
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/dto/ApiEnvelope.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/dto/CreateProductRequest.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/dto/CreateProductResponse.java
+/var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/exception/GlobalExceptionHandler.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/port/out/ProductRepositoryPort.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/service/PlaceholderApplicationService.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/usecase/CreateProductUseCase.java

@@ -1,5 +1,6 @@
 package com.something.api.controller;
 
+import com.something.api.dto.ApiEnvelope;
 import com.something.api.dto.CreateProductRequest;
 import com.something.api.dto.CreateProductResponse;
 import com.something.application.usecase.CreateProductUseCase;
@@ -28,14 +29,14 @@ public class ProductController {
 
     @GetMapping
     @PreAuthorize("hasAnyRole('ADMIN', 'SALES')")
-    public ResponseEntity<java.util.List<Product>> listProducts(
+    public ResponseEntity<ApiEnvelope<java.util.List<Product>>> listProducts(
             @org.springframework.web.bind.annotation.RequestParam(required = false) com.something.domain.entity.ProductStatus status) {
-        return ResponseEntity.ok(listProductsUseCase.execute(status));
+        return ResponseEntity.ok(ApiEnvelope.success(listProductsUseCase.execute(status)));
     }
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    public ResponseEntity<CreateProductResponse> createProduct(@Valid @RequestBody CreateProductRequest request) {
+    public ResponseEntity<ApiEnvelope<CreateProductResponse>> createProduct(@Valid @RequestBody CreateProductRequest request) {
         Product product = createProductUseCase.execute(
                 new CreateProductUseCase.Command(
                         request.sku(),
@@ -49,7 +50,7 @@ public class ProductController {
         );
 
         return ResponseEntity.status(HttpStatus.CREATED).body(
-                new CreateProductResponse(
+                ApiEnvelope.success(new CreateProductResponse(
                         product.getId(),
                         product.getSku(),
                         product.getName(),
@@ -59,7 +60,7 @@ public class ProductController {
                         product.getStockQty(),
                         product.getLowStockThreshold(),
                         product.getStatus()
-                )
+                ))
         );
     }
 }

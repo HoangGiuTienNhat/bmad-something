@@ -1,3 +1,4 @@
-com/something/api/controller/SecurityAccessControlTest.class
 com/something/application/service/ProductServiceTest.class
+com/something/api/controller/SecurityAccessControlTest.class
 com/something/SalesInventoryApplicationTests.class
+com/something/api/controller/ProductControllerTest.class
