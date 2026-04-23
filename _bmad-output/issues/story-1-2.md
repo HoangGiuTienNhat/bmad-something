@@ -1,6 +1,6 @@
 # Issue: Story 1.2: Create Product with Validation and Unique SKU
 
-## Status: OPEN
+## Status: CLOSED
 
 ### Description
 As an Admin,

@@ -1,6 +1,6 @@
 # Issue: Story 1.4: Expose Low-Stock Eligibility from Product Threshold
 
-## Status: OPEN
+## Status: CLOSED
 
 ### Description
 As an Admin,

@@ -1,6 +1,6 @@
 # Issue: Story 1.3: Update and Deactivate Product
 
-## Status: OPEN
+## Status: CLOSED
 
 ### Description
 As an Admin,

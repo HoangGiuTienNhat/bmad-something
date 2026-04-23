@@ -1,6 +1,6 @@
 # Issue: Story 1.1: Configure Role-Based Access for Admin and Sales Staff
 
-## Status: OPEN
+## Status: CLOSED
 
 ### Description
 As an Admin,
