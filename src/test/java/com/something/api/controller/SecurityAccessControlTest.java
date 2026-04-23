@@ -32,6 +32,9 @@ class SecurityAccessControlTest {
     @MockBean
     private CreateProductUseCase createProductUseCase;
 
+    @MockBean
+    private com.something.application.usecase.ListProductsUseCase listProductsUseCase;
+
     @Test
     void shouldRejectAnonymousRequestToProtectedEndpoint() throws Exception {
         mockMvc.perform(post("/api/v1/products"))
@@ -85,6 +88,13 @@ class SecurityAccessControlTest {
     void shouldDenySalesStaffOnAdminOnlyReportingEndpoint() throws Exception {
         mockMvc.perform(get("/api/v1/reports/revenue-daily"))
                 .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(roles = "SALES")
+    void shouldAllowSalesStaffToViewProducts() throws Exception {
+        mockMvc.perform(get("/api/v1/products"))
+                .andExpect(status().isOk());
     }
 
     @Test
