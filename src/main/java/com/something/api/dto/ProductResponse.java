@@ -13,6 +13,7 @@ public record ProductResponse(
         BigDecimal purchasePrice,
         BigDecimal stockQty,
         BigDecimal lowStockThreshold,
-        ProductStatus status
+        com.something.domain.entity.ProductStatus status,
+        boolean isLowStock
 ) {
 }

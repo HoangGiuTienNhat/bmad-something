@@ -119,6 +119,24 @@ class ProductControllerTest {
     }
 
     @Test
+    @WithMockUser(roles = "ADMIN")
+    void shouldExposeLowStockStatus() throws Exception {
+        java.util.UUID id = java.util.UUID.randomUUID();
+        com.something.domain.entity.Product product = new com.something.domain.entity.Product();
+        product.setId(id);
+        product.setSku("LOW-001");
+        product.setStockQty(new java.math.BigDecimal("2.000"));
+        product.setLowStockThreshold(new java.math.BigDecimal("5.000"));
+        product.setStatus(com.something.domain.entity.ProductStatus.ACTIVE);
+
+        when(getProductUseCase.execute(id)).thenReturn(product);
+
+        mockMvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get("/api/v1/products/" + id))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.isLowStock").value(true));
+    }
+
+    @Test
     @WithMockUser(roles = "SALES")
     void shouldDenySalesStaffFromUpdatingProduct() throws Exception {
         java.util.UUID id = java.util.UUID.randomUUID();

@@ -113,7 +113,8 @@ public class ProductController {
                 product.getPurchasePrice(),
                 product.getStockQty(),
                 product.getLowStockThreshold(),
-                product.getStatus()
+                product.getStatus(),
+                product.isLowStock()
         );
     }
 }

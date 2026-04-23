@@ -85,4 +85,11 @@ public class Product {
     public void setStatus(ProductStatus status) {
         this.status = status;
     }
+
+    public boolean isLowStock() {
+        if (stockQty == null || lowStockThreshold == null) {
+            return false;
+        }
+        return stockQty.compareTo(lowStockThreshold) <= 0;
+    }
 }
