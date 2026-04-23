@@ -4,8 +4,10 @@ com/something/api/dto/ApiEnvelope.class
 com/something/domain/entity/Product.class
 com/something/application/usecase/ListProductsUseCase.class
 com/something/api/dto/CreateProductRequest.class
+com/something/api/dto/UpdateProductStatusRequest.class
 com/something/application/usecase/GetProductUseCase$ProductNotFoundException.class
 com/something/infrastructure/persistence/adapter/ProductRepositoryAdapter.class
+com/something/api/dto/ProductResponse.class
 com/something/infrastructure/persistence/jpa/BaseJpaEntity.class
 com/something/api/controller/HealthController.class
 com/something/domain/entity/BaseEntity.class
@@ -17,9 +19,12 @@ com/something/application/usecase/UseCase.class
 com/something/SalesInventoryApplication.class
 com/something/infrastructure/persistence/jpa/ProductRepository.class
 com/something/infrastructure/persistence/jpa/Product.class
+com/something/api/dto/UpdateProductRequest.class
+com/something/application/usecase/UpdateProductUseCase.class
 com/something/application/usecase/GetProductUseCase.class
 com/something/application/usecase/CreateProductUseCase.class
 com/something/infrastructure/security/DatabaseUserDetailsService.class
+com/something/application/usecase/UpdateProductUseCase$Command.class
 com/something/application/service/PlaceholderApplicationService.class
 com/something/api/exception/GlobalExceptionHandler.class
 com/something/domain/rule/BusinessRule.class

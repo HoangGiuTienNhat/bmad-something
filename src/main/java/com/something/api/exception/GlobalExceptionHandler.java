@@ -31,6 +31,12 @@ public class GlobalExceptionHandler {
                 .body(ApiEnvelope.error(message));
     }
 
+    @ExceptionHandler(com.something.application.usecase.GetProductUseCase.ProductNotFoundException.class)
+    public ResponseEntity<ApiEnvelope<Void>> handleProductNotFoundException(com.something.application.usecase.GetProductUseCase.ProductNotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(ApiEnvelope.error(ex.getMessage()));
+    }
+
     @ExceptionHandler(org.springframework.web.servlet.resource.NoResourceFoundException.class)
     public ResponseEntity<ApiEnvelope<Void>> handleNoResourceFoundException(org.springframework.web.servlet.resource.NoResourceFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)

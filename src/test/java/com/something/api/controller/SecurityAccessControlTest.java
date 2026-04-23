@@ -35,6 +35,12 @@ class SecurityAccessControlTest {
     @MockBean
     private com.something.application.usecase.ListProductsUseCase listProductsUseCase;
 
+    @MockBean
+    private com.something.application.usecase.UpdateProductUseCase updateProductUseCase;
+
+    @MockBean
+    private com.something.application.usecase.GetProductUseCase getProductUseCase;
+
     @Test
     void shouldRejectAnonymousRequestToProtectedEndpoint() throws Exception {
         mockMvc.perform(post("/api/v1/products"))

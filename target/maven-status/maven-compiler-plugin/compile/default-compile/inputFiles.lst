@@ -4,12 +4,16 @@
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/dto/ApiEnvelope.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/dto/CreateProductRequest.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/dto/CreateProductResponse.java
+/var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/dto/ProductResponse.java
+/var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/dto/UpdateProductRequest.java
+/var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/dto/UpdateProductStatusRequest.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/api/exception/GlobalExceptionHandler.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/port/out/ProductRepositoryPort.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/service/PlaceholderApplicationService.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/usecase/CreateProductUseCase.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/usecase/GetProductUseCase.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/usecase/ListProductsUseCase.java
+/var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/usecase/UpdateProductUseCase.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/application/usecase/UseCase.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/domain/entity/BaseEntity.java
 /var/tmp/vibe-kanban/worktrees/75f6-th-c-hi-n-dev-to/something/src/main/java/com/something/domain/entity/Product.java
