@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.something.api.controller.SecurityAccessControlTest" time="1.989" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.something.application.service.ProductServiceTest" time="0.127" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -60,42 +60,8 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[sales-inventory] "/>
   </properties>
-  <testcase name="shouldAllowAdminToCreateProduct" classname="com.something.api.controller.SecurityAccessControlTest" time="0.205">
-    <system-out><![CDATA[2026-04-24T13:59:58.838Z  INFO 29478 --- [sales-inventory] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.something.api.controller.SecurityAccessControlTest]: SecurityAccessControlTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-04-24T13:59:58.871Z  INFO 29478 --- [sales-inventory] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.something.SalesInventoryApplication for test class com.something.api.controller.SecurityAccessControlTest
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
-
- :: Spring Boot ::                (v3.3.5)
-
-2026-04-24T13:59:58.904Z  INFO 29478 --- [sales-inventory] [           main] c.s.a.c.SecurityAccessControlTest        : Starting SecurityAccessControlTest using Java 21.0.10 with PID 29478 (started by nhat in /var/tmp/vibe-kanban/worktrees/35ac-th-c-hi-n-epic-1/something)
-2026-04-24T13:59:58.904Z  INFO 29478 --- [sales-inventory] [           main] c.s.a.c.SecurityAccessControlTest        : No active profile set, falling back to 1 default profile: "default"
-2026-04-24T13:59:59.983Z  WARN 29478 --- [sales-inventory] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 74406518-df2f-4c78-8cd2-61f0d1f84e50
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2026-04-24T13:59:59.992Z  INFO 29478 --- [sales-inventory] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-04-24T14:00:00.530Z  INFO 29478 --- [sales-inventory] [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-04-24T14:00:00.530Z  INFO 29478 --- [sales-inventory] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-04-24T14:00:00.531Z  INFO 29478 --- [sales-inventory] [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2026-04-24T14:00:00.549Z  INFO 29478 --- [sales-inventory] [           main] c.s.a.c.SecurityAccessControlTest        : Started SecurityAccessControlTest in 1.672 seconds (process running for 8.092)
-]]></system-out>
-    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/nhat/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.jar)
-WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
-WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
-WARNING: Dynamic loading of agents will be disallowed by default in a future release
-]]></system-err>
-  </testcase>
-  <testcase name="shouldDenySalesStaffWhenCreatingProduct" classname="com.something.api.controller.SecurityAccessControlTest" time="0.01"/>
-  <testcase name="shouldRejectAnonymousRequestToProtectedEndpoint" classname="com.something.api.controller.SecurityAccessControlTest" time="0.007"/>
-  <testcase name="shouldAllowSalesStaffAccessToSalesArea" classname="com.something.api.controller.SecurityAccessControlTest" time="0.012"/>
-  <testcase name="shouldDenySalesStaffOnAdminOnlyReportingEndpoint" classname="com.something.api.controller.SecurityAccessControlTest" time="0.004"/>
-  <testcase name="shouldAllowSalesStaffToViewProducts" classname="com.something.api.controller.SecurityAccessControlTest" time="0.009"/>
+  <testcase name="shouldUpdateProductFieldsWhenExists" classname="com.something.application.service.ProductServiceTest" time="0.115"/>
+  <testcase name="shouldCreateProductWithActiveStatusWhenSkuIsUnique" classname="com.something.application.service.ProductServiceTest" time="0.004"/>
+  <testcase name="shouldRejectWhenSkuAlreadyExists" classname="com.something.application.service.ProductServiceTest" time="0.002"/>
+  <testcase name="shouldThrowNotFoundWhenUpdatingNonExistentProduct" classname="com.something.application.service.ProductServiceTest" time="0.001"/>
 </testsuite>

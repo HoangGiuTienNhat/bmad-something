@@ -9,9 +9,12 @@ import static org.mockito.Mockito.when;
 
 import com.something.application.port.out.ProductRepositoryPort;
 import com.something.application.usecase.CreateProductUseCase;
+import com.something.application.usecase.UpdateProductUseCase;
+import com.something.application.usecase.GetProductUseCase;
 import com.something.domain.entity.Product;
 import com.something.domain.entity.ProductStatus;
 import java.math.BigDecimal;
+import java.util.Optional;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,10 +28,44 @@ class ProductServiceTest {
     private ProductRepositoryPort productRepositoryPort;
 
     private CreateProductUseCase createProductUseCase;
+    private UpdateProductUseCase updateProductUseCase;
 
     @BeforeEach
     void setUp() {
         createProductUseCase = new CreateProductUseCase(productRepositoryPort);
+        updateProductUseCase = new UpdateProductUseCase(productRepositoryPort);
+    }
+
+    @Test
+    void shouldUpdateProductFieldsWhenExists() {
+        UUID id = UUID.randomUUID();
+        Product product = new Product();
+        product.setId(id);
+        product.setName("Old Name");
+
+        UpdateProductUseCase.Command command = new UpdateProductUseCase.Command(
+                id, "New Name", null, null, null, null, null, null
+        );
+
+        when(productRepositoryPort.findById(id)).thenReturn(Optional.of(product));
+        when(productRepositoryPort.save(any(Product.class))).thenReturn(product);
+
+        Product result = updateProductUseCase.execute(command);
+
+        assertEquals("New Name", result.getName());
+        verify(productRepositoryPort).save(product);
+    }
+
+    @Test
+    void shouldThrowNotFoundWhenUpdatingNonExistentProduct() {
+        UUID id = UUID.randomUUID();
+        UpdateProductUseCase.Command command = new UpdateProductUseCase.Command(
+                id, "New Name", null, null, null, null, null, null
+        );
+
+        when(productRepositoryPort.findById(id)).thenReturn(Optional.empty());
+
+        assertThrows(GetProductUseCase.ProductNotFoundException.class, () -> updateProductUseCase.execute(command));
     }
 
     @Test

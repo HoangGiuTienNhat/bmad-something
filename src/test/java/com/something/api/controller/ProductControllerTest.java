@@ -77,7 +77,7 @@ class ProductControllerTest {
 
         when(updateProductUseCase.execute(any(com.something.application.usecase.UpdateProductUseCase.Command.class))).thenReturn(product);
 
-        mockMvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put("/api/v1/products/" + id)
+        mockMvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch("/api/v1/products/" + id)
                         .contentType("application/json")
                         .content("""
                                 {
@@ -140,7 +140,7 @@ class ProductControllerTest {
     @WithMockUser(roles = "SALES")
     void shouldDenySalesStaffFromUpdatingProduct() throws Exception {
         java.util.UUID id = java.util.UUID.randomUUID();
-        mockMvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put("/api/v1/products/" + id)
+        mockMvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch("/api/v1/products/" + id)
                         .contentType("application/json")
                         .content("""
                                 {

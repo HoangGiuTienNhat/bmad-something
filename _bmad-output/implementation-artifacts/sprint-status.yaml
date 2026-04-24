@@ -1,0 +1,60 @@
+# generated: 2026-04-24T10:00:00Z
+# last_updated: 2026-04-24T10:00:00Z
+# project: something
+# project_key: NOKEY
+# tracking_system: file-system
+# story_location: _bmad-output/implementation-artifacts
+
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+#
+# Epic Status Transitions:
+#   - backlog → in-progress: Automatically when first story is created (via create-story)
+#   - in-progress → done: Manually when all stories reach 'done' status
+#
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created in stories folder
+#   - in-progress: Developer actively working on implementation
+#   - review: Ready for code review (via Dev's code-review workflow)
+#   - done: Story completed
+#
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+
+generated: 2026-04-24T10:00:00Z
+last_updated: 2026-04-24T10:00:00Z
+project: something
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+
+development_status:
+  epic-1: in-progress
+  1-1-configure-role-based-access-for-admin-and-sales-staff: done
+  1-2-create-product-with-validation-and-unique-sku: done
+  1-3-update-and-deactivate-product: done
+  1-4-expose-low-stock-eligibility-from-product-threshold: ready-for-dev
+  epic-1-retrospective: optional
+  epic-2: backlog
+  2-1-build-draft-sales-order-with-multiple-line-items: backlog
+  2-2-apply-order-level-discount-and-final-total-calculation: backlog
+  2-3-complete-order-with-atomic-stock-deduction: backlog
+  2-4-cancel-completed-or-draft-orders-with-correct-stock-outcome: backlog
+  2-5-provide-order-detail-api-for-invoice-rendering: backlog
+  epic-2-retrospective: optional
+  epic-3: backlog
+  3-1-create-and-confirm-stock-in-transaction: backlog
+  3-2-create-inventory-transaction-log-for-every-stock-mutation: backlog
+  3-3-adjust-stock-with-mandatory-reason-and-permission-guard: backlog
+  epic-3-retrospective: optional
+  epic-4: backlog
+  4-1-generate-daily-revenue-report: backlog
+  4-2-generate-gross-profit-report-using-cost-snapshot: backlog
+  4-3-provide-top-selling-products-and-low-stock-report: backlog
+  epic-4-retrospective: optional
