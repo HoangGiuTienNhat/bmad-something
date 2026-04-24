@@ -8,7 +8,7 @@ So that stock warning logic is tailored per item.
 
 ## Status
 
-ready-for-dev
+done
 
 ## Acceptance Criteria
 
@@ -16,15 +16,15 @@ ready-for-dev
 
 ## Tasks / Subtasks
 
-- [ ] Task 1: Verify domain entity logic for low stock
-  - [ ] 1.1 Ensure `Product` domain entity has `isLowStock()` method implementing `stockQty <= lowStockThreshold`
-  - [ ] 1.2 Add unit test for `isLowStock()` in `ProductTest`
-- [ ] Task 2: Expose low stock status in API response
-  - [ ] 2.1 Update `ProductResponse` DTO to include `isLowStock` boolean field
-  - [ ] 2.2 Update `ProductController.mapToResponse` to populate `isLowStock` from domain entity
-- [ ] Task 3: Verify integration
-  - [ ] 3.1 Write integration test to verify `isLowStock` is correctly returned in `GET /api/v1/products/{id}`
-  - [ ] 3.2 Write integration test to verify `isLowStock` is correctly returned in `GET /api/v1/products`
+- [x] Task 1: Verify domain entity logic for low stock
+  - [x] 1.1 Ensure `Product` domain entity has `isLowStock()` method implementing `stockQty <= lowStockThreshold`
+  - [x] 1.2 Add unit test for `isLowStock()` in `ProductTest`
+- [x] Task 2: Expose low stock status in API response
+  - [x] 2.1 Update `ProductResponse` DTO to include `isLowStock` boolean field
+  - [x] 2.2 Update `ProductController.mapToResponse` to populate `isLowStock` from domain entity
+- [x] Task 3: Verify integration
+  - [x] 3.1 Write integration test to verify `isLowStock` is correctly returned in `GET /api/v1/products/{id}`
+  - [x] 3.2 Write integration test to verify `isLowStock` is correctly returned in `GET /api/v1/products`
 
 ## Dev Notes
 

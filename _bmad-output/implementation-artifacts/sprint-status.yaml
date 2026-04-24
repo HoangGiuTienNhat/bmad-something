@@ -39,7 +39,7 @@ development_status:
   1-1-configure-role-based-access-for-admin-and-sales-staff: done
   1-2-create-product-with-validation-and-unique-sku: done
   1-3-update-and-deactivate-product: done
-  1-4-expose-low-stock-eligibility-from-product-threshold: ready-for-dev
+  1-4-expose-low-stock-eligibility-from-product-threshold: done
   epic-1-retrospective: optional
   epic-2: backlog
   2-1-build-draft-sales-order-with-multiple-line-items: backlog
